@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hcmute fcu system</title>
+    <link rel="stylesheet" href="style-dieu-khien-quat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="apexcharts.css">
+    <link rel="stylesheet" href="css-circular-prog-bar.css">
+    
+</head>
+
+<body>
+
+    <div class="header">
+            <img id="logo1" src="hinh/logo.png" width="80px" alt="hinh logo truong">
+            <img id="logo2" src="hinh/logo-khoa.png" width="90px" alt="hinh logo truong" >
+            <div id="text-hihi">
+                <p id="text1"> TRƯỜNG ĐẠI HỌC </p>
+                <p id="text2"> SƯ PHẠM KỸ THUẬT TP. HỒ CHÍ MINH </p>
+                <p id="text3"> KHOA ĐIỆN - ĐIỆN TỬ </p>
+                <p id="text4"> FACULTY OF ELECTRICAL END ELECTRONICS ENGINEERING </p>
+            </div>
+            <p id="ten-de-tai">ỨNG DỤNG BMS GIÁM SÁT VÀ ĐIỀU KHIỂN HỆ THỐNG FCU KẾT HỢP CHILLER</p>
+    </div>
+
+    
+    
+        <div class="vitri-content1">   
+            
+            <img id="class" src="lop.png" alt="">
+            <img id="water-flow" src="/anh/water-flow.gif" alt="">
+            <img id="air-flow" src="air-flow.gif"  alt="">
+            <p id="pre">Pressure: <span id="apsuat">00</span> Pa</p>
+            <p id="tem">Temp: <span id="nhietdo">00</span> ℃</p>
+            <p id="call"></p>
+            <div class="valve-status">
+                <div id="circle-on" ></div> 
+                <div id="circle1-on" ></div>
+                <div id="circle-off" ></div> 
+                <div id="circle1-off" ></div>
+            </div>
+            <p id="ender"> Owner: Nguyễn Duy Khương MSSV 20142352 - Nguyễn Khắc Hải MSSV 20142088</p>
+            
+        </div>
+
+        <div class="content-1">
+            <section id="modal-monitor" class="modal-monitor">
+                <div id="voltage-monitor" class="voltage-monitor">
+                    <div id="volt" class="value"></div>
+                    <div id="frame-chart-voltage" class="frame-chart">
+                        <p id="frame-chart-voltage-text" class="frame-chart-text">Chart Temperature</p>
+                        <canvas id="chart-voltage" class="chart"></canvas>
+                    </div>
+                </div>
+            </section>   
+            
+        </div>
+        <div class="monitoring">
+            <div id="frame-speed">
+                <img src="hinh/speed.png" alt="" width="40px">
+                <p>Speed</p>
+                <span id="speed">00</span>
+                <p>npm</p>
+            </div>
+            <div id="frame-power">
+                <img src="hinh/current.png" alt="" width="40px">
+                <p>Power</p>
+                <span id="power">00</span>
+                <p>kW</p>
+            </div>
+            <div id="frame-voltage">
+                <img src="hinh/voltage.png" alt="" width="40px">
+                <p>Voltage</p>
+                <span id="voltage">00</span>
+                <p>V</p>
+            </div>
+            <div id="frame-current">
+                <img src="hinh/ampere.png" alt="" width="40px">
+                <p>Current</p>
+                <span id="current">00</span>
+                <p>A</p>
+            </div>
+        </div>
+        <button id="btn-thermostat">
+            <img id="anh-thermostat" src="thermostat.png" alt="">
+        </button>
+        <div id="myModal" class="modal">
+                
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div id="header-fan">
+                    <span class="close">&times;</span>
+                    <p >Thermostat</p>
+                </div>
+                <div id="body-fan">
+                    <span class="dot">
+                        <p id="temp-room"><span id="themotat"> </span>℃ </p>
+                        <div id="box">
+                            <p id="set-point"><span id="set-point-display"> </span>℃ </p>
+                        </div>
+                    </span>
+                    <!-- <span class="dot1"></span> -->
+                    <div id="chart1"></div>
+                    <div class="mode">
+                        <div id="rec-auto">
+                            <button id="btn-auto">Auto</button>
+                                <div id="box-auto" style="display:none">
+                                    <p>Set point</p>
+                                    <div class="slidecontainer">
+                                        <input type="range" min="20" max="31" value="50" class="slider" id="myRange" autocomplete="off">
+                                        <p>Value: <span id="demo"></span></p>
+                                    </div>
+                                </div>
+                        </div>
+                        <div id="rec-manual">
+                            <button id="btn-manual">Manual</button>
+                            <div id="box-manual">
+                                <div id="frame-tocdo">
+                                    <p>Speed</p>
+                                    <p>Value: <span id="demo1"></span>Hz</p>
+                                    <div class="slidecontainer1">
+                                        <input type="range" min="20" max="50" value="50" class="slider" id="myRange1">
+                                    </div>
+                                    <button class="button"   id="low">Low</button>
+                                    <button class="button"   id="medium">Medium</button>
+                                    <button class="button"   id="high">High</button>  
+                                    <button class="button"   id="stop">Stop</button>  
+                                    <p id="valve">Valve</p> 
+                                    <button class="button1"   id="btnOn">ON</button>
+                                    <button class="button1"   id="btnOff">OFF</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="imageCheckbox-thermostat" onclick="toggleImage()">
+                                    <span class="slider5"></span>
+                                  </label>
+                            </div>
+                        </div>
+
+                            
+
+                    </div>
+                </div>
+                
+      
+            </div>
+        </div>
+
+          
+    </body>
+    <script>
+        var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("btn-thermostat");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gaugeJS/dist/gauge.min.js"></script>  
+        <script src="script-dieu-khien-quat.js"></script> 
+        <script src=" apexcharts.js"></script> 
+
+
+
+
